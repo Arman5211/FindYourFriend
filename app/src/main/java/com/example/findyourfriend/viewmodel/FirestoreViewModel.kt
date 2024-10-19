@@ -1,4 +1,4 @@
-package com.example.findyourfriend
+package com.example.findyourfriend.viewmodel
 
 
 import android.content.Context
@@ -7,10 +7,16 @@ import androidx.lifecycle.ViewModel
 import com.example.findyourfriend.model.User
 import com.google.firebase.firestore.FirebaseFirestore
 
-class FirestoreViewModel: ViewModel() {
+class FirestoreViewModel : ViewModel() {
     private val firestore = FirebaseFirestore.getInstance()
     private val usersCollection = firestore.collection("users")
-    fun saveUser(context: Context, userId: String, displayName: String, email: String, location: String) {
+    fun saveUser(
+        context: Context,
+        userId: String,
+        displayName: String,
+        email: String,
+        location: String
+    ) {
         val user = hashMapOf(
             "displayName" to displayName,
             "email" to email,
@@ -26,9 +32,10 @@ class FirestoreViewModel: ViewModel() {
                 ).show()
             }
             .addOnFailureListener { e ->
-                Toast.makeText(context,e.message.toString(), Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, e.message.toString(), Toast.LENGTH_SHORT).show()
             }
     }
+
     fun getAllUsers(context: Context, callback: (List<User>) -> Unit) {
         usersCollection.get()
             .addOnSuccessListener {
@@ -43,7 +50,7 @@ class FirestoreViewModel: ViewModel() {
                 callback(userList)
             }
             .addOnFailureListener { e ->
-                Toast.makeText(context,e.message.toString(), Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, e.message.toString(), Toast.LENGTH_SHORT).show()
             }
     }
 
@@ -63,7 +70,7 @@ class FirestoreViewModel: ViewModel() {
                 ).show()
             }
             .addOnFailureListener { e ->
-                Toast.makeText(context,e.message.toString(), Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, e.message.toString(), Toast.LENGTH_SHORT).show()
             }
     }
 
@@ -85,7 +92,7 @@ class FirestoreViewModel: ViewModel() {
                 ).show()
             }
             .addOnFailureListener { e ->
-                Toast.makeText(context,e.message.toString(), Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, e.message.toString(), Toast.LENGTH_SHORT).show()
             }
     }
 
@@ -96,7 +103,7 @@ class FirestoreViewModel: ViewModel() {
                 callback(user)
             }
             .addOnFailureListener { e ->
-                Toast.makeText(context,e.message.toString(), Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, e.message.toString(), Toast.LENGTH_SHORT).show()
                 callback(null)
             }
     }
@@ -108,7 +115,7 @@ class FirestoreViewModel: ViewModel() {
                 callback(location)
             }
             .addOnFailureListener { e ->
-                Toast.makeText(context,e.message.toString(), Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, e.message.toString(), Toast.LENGTH_SHORT).show()
                 callback("")
             }
     }

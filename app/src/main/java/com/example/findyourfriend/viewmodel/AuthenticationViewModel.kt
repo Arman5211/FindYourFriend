@@ -1,4 +1,4 @@
-package com.example.findyourfriend
+package com.example.findyourfriend.viewmodel
 
 
 import androidx.lifecycle.ViewModel

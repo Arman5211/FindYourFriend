@@ -1,4 +1,4 @@
-package com.example.findyourfriend
+package com.example.findyourfriend.view
 
 
 import android.content.Intent
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.example.findyourfriend.viewmodel.AuthenticationViewModel
 import com.example.findyourfriend.databinding.ActivityLoginBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth

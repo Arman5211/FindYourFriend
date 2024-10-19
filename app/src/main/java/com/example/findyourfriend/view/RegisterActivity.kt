@@ -1,10 +1,12 @@
-package com.example.findyourfriend
+package com.example.findyourfriend.view
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.example.findyourfriend.viewmodel.AuthenticationViewModel
+import com.example.findyourfriend.viewmodel.FirestoreViewModel
 import com.example.findyourfriend.databinding.ActivityRegisterBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
@@ -12,7 +14,7 @@ import com.google.firebase.auth.auth
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var authenticationViewModel: AuthenticationViewModel
-    private lateinit var firestoreViewModel:FirestoreViewModel
+    private lateinit var firestoreViewModel: FirestoreViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
