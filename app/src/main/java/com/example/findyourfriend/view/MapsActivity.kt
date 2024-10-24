@@ -46,11 +46,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         firestoreViewModel.getAllUsers(this) { users ->
             for (user in users) {
                 val userLocation = user.location
-
-                // Check if the location is valid before parsing
                 if (userLocation.isEmpty() || userLocation == "Don't found any location yet" || userLocation == "Location not available") {
-                    // Optionally, set a default location or skip adding a marker
-                    continue // Skip this user if the location is not available
+
+                    continue
                 }
 
                 // Parse the valid location
